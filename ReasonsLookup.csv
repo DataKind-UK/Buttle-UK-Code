@@ -1,0 +1,60 @@
+eval_approval_reason_main,ReasonGroup1,count
+,Missing,22428
+Bereavement,Bereavement,1700
+Child Abuse,Child Abuse/Neglect,493
+Child Neglect,Child Abuse/Neglect,743
+Child abuse,Child Abuse/Neglect,442
+Child abuse/neglect,Child Abuse/Neglect,893
+Child beyond control,Child Behaviour Issues,122
+Child health/development problems,Child Health,6695
+Child neglect,Child Abuse/Neglect,1013
+Child with psychiatric problems,Child Psychiatric Issues,95
+Child/YPerson - psychiatric problems,Child Psychiatric Issues,169
+Child/YPerson Behavioural/Emotional Difficulties,Child Behaviour Issues,587
+Child/YPerson Health/Development Problems,Child Health,4457
+Child/YPerson with Behavioural Problems,Child Behaviour Issues,690
+Child/YPerson with Psychiatric Problems,Child Psychiatric Issues,325
+Desertion/Divorce,Desertion/Divorce,1384
+Difficulties with Other Family Members,Family Difficulties,433
+Disaster (fire,Disaster,174
+Disaster (fire or flood),Disaster,469
+Domestic Abuse,Domestic Abuse,7910
+Domestic violence,Domestic Abuse,7121
+Estrangement,Estrangement,11477
+Ex Care,Ex Care,582
+Extreme family size,Extreme Family Size,170
+Failure of State Education,Education Failure,1
+Failure of state education,Education Failure,3
+Harassment,Harassment/Assault/Theft,741
+Harassment/Assault/Theft,Harassment/Assault/Theft,715
+Homelessness,Homelessness,2826
+Imprisonment of Parent,Imprisonment,314
+Imprisonment of parent,Imprisonment,466
+Isolation/Unsupported,Isolation/Unsupported,118
+Kinship Care,Kinship Care,373
+Large Family Size,Extreme Family Size,152
+No Recourse To Public Funds,No Public Funds,199
+No recourse to public funds,No Public Funds,127
+Non-Coping Parent,Non-Coping Parent,649
+Offending/Challenging Behaviour,Offending/Challenging Behaviour,321
+Offending/challenging behaviour,Offending/Challenging Behaviour,513
+Other,Other,75
+Parent illness - psychiatric,Parent with Mental Health Issues,4295
+Parent with Drug/Alcohol Problems,Parent with Drug/Alcohol Problems,1935
+Parent with Learning Difficulties,Parent with Learning Difficulties,381
+Parent with Mental Health Issues,Parent with Mental Health Issues,3778
+Parent with Physical Ill-Health,Parent with Physical Ill-Health,1674
+Parent with drug/alcohol problems,Parent with Drug/Alcohol Problems,2476
+Parent with learning difficulties,Parent with Learning Difficulties,570
+Parental illness - physical,Parent with Physical Ill-Health,2015
+Poor Living Conditions/Poverty,Poor Living Conditions/Poverty,787
+Refugees,Refugees/Asylum Seekers,381
+Refugees/Asylum Seekers,Refugees/Asylum Seekers,1651
+Relationship withother family members,Family Difficulties,156
+Unacceptable material standards,Poor Living Conditions/Poverty,692
+Young Carer,Young Carer,185
+Young Parent,Young Parent,700
+Young Person with Drug/Alcohol Problems,Young Person With Drug Problems,66
+Young or Non-Coping Parent,Young Parent,455
+Young person with drug/alcohol problems,Young Person With Drug Problems,51
+Young/non-coping parent(s),Young Parent,2552

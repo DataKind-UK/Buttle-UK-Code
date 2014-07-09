@@ -1,0 +1,153 @@
+CREATE TABLE sandbox.case_evaluation_cat
+as
+SELECT
+	e.case_id,
+	e.eval_family_type,
+	e.eval_application_purpose,
+	e.eval_decision,
+	e.eval_approval_reason_main,
+	e.eval_approval_reason_2,
+	e.eval_approval_reason_3,
+	e.eval_approval_reason_4,
+	case 
+		when e.eval_approval_reason_main in ('Bereavement') then 'Bereavement'
+		when e.eval_approval_reason_main in ('Child Abuse', 'Child Neglect', 'Child abuse', 'Child abuse/neglect', 'Child neglect') then 'Child Abuse/Neglect'
+		when e.eval_approval_reason_main in ('Child beyond control', 'Child/YPerson Behavioural/Emotional Difficulties', 'Child/YPerson with Behavioural Problems') then 'Child Behaviour Issues'
+		when e.eval_approval_reason_main in ('Child health/development problems', 'Child/YPerson Health/Development Problems') then 'Child Health'
+		when e.eval_approval_reason_main in ('Child with psychiatric problems', 'Child/YPerson - psychiatric problems', 'Child/YPerson with Psychiatric Problems') then 'Child Psychiatric Issues'
+		when e.eval_approval_reason_main in ('Desertion/Divorce') then 'Desertion/Divorce'
+		when e.eval_approval_reason_main in ('Disaster (fire', 'Disaster (fire or flood)') then 'Disaster'
+		when e.eval_approval_reason_main in ('Domestic Abuse', 'Domestic violence') then 'Domestic Abuse'
+		when e.eval_approval_reason_main in ('Failure of State Education', 'Failure of state education') then 'Education Failure'
+		when e.eval_approval_reason_main in ('Estrangement') then 'Estrangement'
+		when e.eval_approval_reason_main in ('Ex Care') then 'Ex Care'
+		when e.eval_approval_reason_main in ('Extreme family size', 'Large Family Size') then 'Extreme Family Size'
+		when e.eval_approval_reason_main in ('Difficulties with Other Family Members', 'Relationship withother family members') then 'Family Difficulties'
+		when e.eval_approval_reason_main in ('Harassment', 'Harassment/Assault/Theft') then 'Harassment/Assault/Theft'
+		when e.eval_approval_reason_main in ('Homelessness') then 'Homelessness'
+		when e.eval_approval_reason_main in ('Imprisonment of Parent', 'Imprisonment of parent') then 'Imprisonment'
+		when e.eval_approval_reason_main in ('Isolation/Unsupported') then 'Isolation/Unsupported'
+		when e.eval_approval_reason_main in ('Kinship Care') then 'Kinship Care'
+		when e.eval_approval_reason_main in ('No Recourse To Public Funds', 'No recourse to public funds') then 'No Public Funds'
+		when e.eval_approval_reason_main in ('Non-Coping Parent') then 'Non-Coping Parent'
+		when e.eval_approval_reason_main in ('Offending/Challenging Behaviour', 'Offending/challenging behaviour') then 'Offending/Challenging Behaviour'
+		when e.eval_approval_reason_main in ('Other') then 'Other'
+		when e.eval_approval_reason_main in ('Parent with Drug/Alcohol Problems', 'Parent with drug/alcohol problems') then 'Parent with Drug/Alcohol Problems'
+		when e.eval_approval_reason_main in ('Parent with Learning Difficulties', 'Parent with learning difficulties') then 'Parent with Learning Difficulties'
+		when e.eval_approval_reason_main in ('Parent illness - psychiatric', 'Parent with Mental Health Issues') then 'Parent with Mental Health Issues'
+		when e.eval_approval_reason_main in ('Parent with Physical Ill-Health', 'Parental illness - physical') then 'Parent with Physical Ill-Health'
+		when e.eval_approval_reason_main in ('Poor Living Conditions/Poverty', 'Unacceptable material standards') then 'Poor Living Conditions/Poverty'
+		when e.eval_approval_reason_main in ('Refugees', 'Refugees/Asylum Seekers') then 'Refugees/Asylum Seekers'
+		when e.eval_approval_reason_main in ('Young Carer') then 'Young Carer'
+		when e.eval_approval_reason_main in ('Young Parent', 'Young or Non-Coping Parent', 'Young/non-coping parent(s)') then 'Young Parent'
+		when e.eval_approval_reason_main in ('Young Person with Drug/Alcohol Problems', 'Young person with drug/alcohol problems') then 'Young Person With Drug Problems'
+		ELSE CASE when e.eval_approval_reason_main IS NULL THEN NULL ELSE 'Other' END
+	END as "eval_approval_reason_main_cat",
+	case 
+		when e.eval_approval_reason_2 in ('Bereavement') then 'Bereavement'
+		when e.eval_approval_reason_2 in ('Child Abuse', 'Child Neglect', 'Child abuse', 'Child abuse/neglect', 'Child neglect') then 'Child Abuse/Neglect'
+		when e.eval_approval_reason_2 in ('Child beyond control', 'Child/YPerson Behavioural/Emotional Difficulties', 'Child/YPerson with Behavioural Problems') then 'Child Behaviour Issues'
+		when e.eval_approval_reason_2 in ('Child health/development problems', 'Child/YPerson Health/Development Problems') then 'Child Health'
+		when e.eval_approval_reason_2 in ('Child with psychiatric problems', 'Child/YPerson - psychiatric problems', 'Child/YPerson with Psychiatric Problems') then 'Child Psychiatric Issues'
+		when e.eval_approval_reason_2 in ('Desertion/Divorce') then 'Desertion/Divorce'
+		when e.eval_approval_reason_2 in ('Disaster (fire', 'Disaster (fire or flood)') then 'Disaster'
+		when e.eval_approval_reason_2 in ('Domestic Abuse', 'Domestic violence') then 'Domestic Abuse'
+		when e.eval_approval_reason_2 in ('Failure of State Education', 'Failure of state education') then 'Education Failure'
+		when e.eval_approval_reason_2 in ('Estrangement') then 'Estrangement'
+		when e.eval_approval_reason_2 in ('Ex Care') then 'Ex Care'
+		when e.eval_approval_reason_2 in ('Extreme family size', 'Large Family Size') then 'Extreme Family Size'
+		when e.eval_approval_reason_2 in ('Difficulties with Other Family Members', 'Relationship withother family members') then 'Family Difficulties'
+		when e.eval_approval_reason_2 in ('Harassment', 'Harassment/Assault/Theft') then 'Harassment/Assault/Theft'
+		when e.eval_approval_reason_2 in ('Homelessness') then 'Homelessness'
+		when e.eval_approval_reason_2 in ('Imprisonment of Parent', 'Imprisonment of parent') then 'Imprisonment'
+		when e.eval_approval_reason_2 in ('Isolation/Unsupported') then 'Isolation/Unsupported'
+		when e.eval_approval_reason_2 in ('Kinship Care') then 'Kinship Care'
+		when e.eval_approval_reason_2 in ('No Recourse To Public Funds', 'No recourse to public funds') then 'No Public Funds'
+		when e.eval_approval_reason_2 in ('Non-Coping Parent') then 'Non-Coping Parent'
+		when e.eval_approval_reason_2 in ('Offending/Challenging Behaviour', 'Offending/challenging behaviour') then 'Offending/Challenging Behaviour'
+		when e.eval_approval_reason_2 in ('Other') then 'Other'
+		when e.eval_approval_reason_2 in ('Parent with Drug/Alcohol Problems', 'Parent with drug/alcohol problems') then 'Parent with Drug/Alcohol Problems'
+		when e.eval_approval_reason_2 in ('Parent with Learning Difficulties', 'Parent with learning difficulties') then 'Parent with Learning Difficulties'
+		when e.eval_approval_reason_2 in ('Parent illness - psychiatric', 'Parent with Mental Health Issues') then 'Parent with Mental Health Issues'
+		when e.eval_approval_reason_2 in ('Parent with Physical Ill-Health', 'Parental illness - physical') then 'Parent with Physical Ill-Health'
+		when e.eval_approval_reason_2 in ('Poor Living Conditions/Poverty', 'Unacceptable material standards') then 'Poor Living Conditions/Poverty'
+		when e.eval_approval_reason_2 in ('Refugees', 'Refugees/Asylum Seekers') then 'Refugees/Asylum Seekers'
+		when e.eval_approval_reason_2 in ('Young Carer') then 'Young Carer'
+		when e.eval_approval_reason_2 in ('Young Parent', 'Young or Non-Coping Parent', 'Young/non-coping parent(s)') then 'Young Parent'
+		when e.eval_approval_reason_2 in ('Young Person with Drug/Alcohol Problems', 'Young person with drug/alcohol problems') then 'Young Person With Drug Problems'
+		ELSE CASE when e.eval_approval_reason_2 IS NULL THEN NULL ELSE 'Other' END
+	END as "eval_approval_reason_2_cat",
+	case 
+		when e.eval_approval_reason_3 in ('Bereavement') then 'Bereavement'
+		when e.eval_approval_reason_3 in ('Child Abuse', 'Child Neglect', 'Child abuse', 'Child abuse/neglect', 'Child neglect') then 'Child Abuse/Neglect'
+		when e.eval_approval_reason_3 in ('Child beyond control', 'Child/YPerson Behavioural/Emotional Difficulties', 'Child/YPerson with Behavioural Problems') then 'Child Behaviour Issues'
+		when e.eval_approval_reason_3 in ('Child health/development problems', 'Child/YPerson Health/Development Problems') then 'Child Health'
+		when e.eval_approval_reason_3 in ('Child with psychiatric problems', 'Child/YPerson - psychiatric problems', 'Child/YPerson with Psychiatric Problems') then 'Child Psychiatric Issues'
+		when e.eval_approval_reason_3 in ('Desertion/Divorce') then 'Desertion/Divorce'
+		when e.eval_approval_reason_3 in ('Disaster (fire', 'Disaster (fire or flood)') then 'Disaster'
+		when e.eval_approval_reason_3 in ('Domestic Abuse', 'Domestic violence') then 'Domestic Abuse'
+		when e.eval_approval_reason_3 in ('Failure of State Education', 'Failure of state education') then 'Education Failure'
+		when e.eval_approval_reason_3 in ('Estrangement') then 'Estrangement'
+		when e.eval_approval_reason_3 in ('Ex Care') then 'Ex Care'
+		when e.eval_approval_reason_3 in ('Extreme family size', 'Large Family Size') then 'Extreme Family Size'
+		when e.eval_approval_reason_3 in ('Difficulties with Other Family Members', 'Relationship withother family members') then 'Family Difficulties'
+		when e.eval_approval_reason_3 in ('Harassment', 'Harassment/Assault/Theft') then 'Harassment/Assault/Theft'
+		when e.eval_approval_reason_3 in ('Homelessness') then 'Homelessness'
+		when e.eval_approval_reason_3 in ('Imprisonment of Parent', 'Imprisonment of parent') then 'Imprisonment'
+		when e.eval_approval_reason_3 in ('Isolation/Unsupported') then 'Isolation/Unsupported'
+		when e.eval_approval_reason_3 in ('Kinship Care') then 'Kinship Care'
+		when e.eval_approval_reason_3 in ('No Recourse To Public Funds', 'No recourse to public funds') then 'No Public Funds'
+		when e.eval_approval_reason_3 in ('Non-Coping Parent') then 'Non-Coping Parent'
+		when e.eval_approval_reason_3 in ('Offending/Challenging Behaviour', 'Offending/challenging behaviour') then 'Offending/Challenging Behaviour'
+		when e.eval_approval_reason_3 in ('Other') then 'Other'
+		when e.eval_approval_reason_3 in ('Parent with Drug/Alcohol Problems', 'Parent with drug/alcohol problems') then 'Parent with Drug/Alcohol Problems'
+		when e.eval_approval_reason_3 in ('Parent with Learning Difficulties', 'Parent with learning difficulties') then 'Parent with Learning Difficulties'
+		when e.eval_approval_reason_3 in ('Parent illness - psychiatric', 'Parent with Mental Health Issues') then 'Parent with Mental Health Issues'
+		when e.eval_approval_reason_3 in ('Parent with Physical Ill-Health', 'Parental illness - physical') then 'Parent with Physical Ill-Health'
+		when e.eval_approval_reason_3 in ('Poor Living Conditions/Poverty', 'Unacceptable material standards') then 'Poor Living Conditions/Poverty'
+		when e.eval_approval_reason_3 in ('Refugees', 'Refugees/Asylum Seekers') then 'Refugees/Asylum Seekers'
+		when e.eval_approval_reason_3 in ('Young Carer') then 'Young Carer'
+		when e.eval_approval_reason_3 in ('Young Parent', 'Young or Non-Coping Parent', 'Young/non-coping parent(s)') then 'Young Parent'
+		when e.eval_approval_reason_3 in ('Young Person with Drug/Alcohol Problems', 'Young person with drug/alcohol problems') then 'Young Person With Drug Problems'
+		ELSE CASE when e.eval_approval_reason_3 IS NULL THEN NULL ELSE 'Other' END
+	END as "eval_approval_reason_3_cat",
+	case 
+		when e.eval_approval_reason_4 in ('Bereavement') then 'Bereavement'
+		when e.eval_approval_reason_4 in ('Child Abuse', 'Child Neglect', 'Child abuse', 'Child abuse/neglect', 'Child neglect') then 'Child Abuse/Neglect'
+		when e.eval_approval_reason_4 in ('Child beyond control', 'Child/YPerson Behavioural/Emotional Difficulties', 'Child/YPerson with Behavioural Problems') then 'Child Behaviour Issues'
+		when e.eval_approval_reason_4 in ('Child health/development problems', 'Child/YPerson Health/Development Problems') then 'Child Health'
+		when e.eval_approval_reason_4 in ('Child with psychiatric problems', 'Child/YPerson - psychiatric problems', 'Child/YPerson with Psychiatric Problems') then 'Child Psychiatric Issues'
+		when e.eval_approval_reason_4 in ('Desertion/Divorce') then 'Desertion/Divorce'
+		when e.eval_approval_reason_4 in ('Disaster (fire', 'Disaster (fire or flood)') then 'Disaster'
+		when e.eval_approval_reason_4 in ('Domestic Abuse', 'Domestic violence') then 'Domestic Abuse'
+		when e.eval_approval_reason_4 in ('Failure of State Education', 'Failure of state education') then 'Education Failure'
+		when e.eval_approval_reason_4 in ('Estrangement') then 'Estrangement'
+		when e.eval_approval_reason_4 in ('Ex Care') then 'Ex Care'
+		when e.eval_approval_reason_4 in ('Extreme family size', 'Large Family Size') then 'Extreme Family Size'
+		when e.eval_approval_reason_4 in ('Difficulties with Other Family Members', 'Relationship withother family members') then 'Family Difficulties'
+		when e.eval_approval_reason_4 in ('Harassment', 'Harassment/Assault/Theft') then 'Harassment/Assault/Theft'
+		when e.eval_approval_reason_4 in ('Homelessness') then 'Homelessness'
+		when e.eval_approval_reason_4 in ('Imprisonment of Parent', 'Imprisonment of parent') then 'Imprisonment'
+		when e.eval_approval_reason_4 in ('Isolation/Unsupported') then 'Isolation/Unsupported'
+		when e.eval_approval_reason_4 in ('Kinship Care') then 'Kinship Care'
+		when e.eval_approval_reason_4 in ('No Recourse To Public Funds', 'No recourse to public funds') then 'No Public Funds'
+		when e.eval_approval_reason_4 in ('Non-Coping Parent') then 'Non-Coping Parent'
+		when e.eval_approval_reason_4 in ('Offending/Challenging Behaviour', 'Offending/challenging behaviour') then 'Offending/Challenging Behaviour'
+		when e.eval_approval_reason_4 in ('Other') then 'Other'
+		when e.eval_approval_reason_4 in ('Parent with Drug/Alcohol Problems', 'Parent with drug/alcohol problems') then 'Parent with Drug/Alcohol Problems'
+		when e.eval_approval_reason_4 in ('Parent with Learning Difficulties', 'Parent with learning difficulties') then 'Parent with Learning Difficulties'
+		when e.eval_approval_reason_4 in ('Parent illness - psychiatric', 'Parent with Mental Health Issues') then 'Parent with Mental Health Issues'
+		when e.eval_approval_reason_4 in ('Parent with Physical Ill-Health', 'Parental illness - physical') then 'Parent with Physical Ill-Health'
+		when e.eval_approval_reason_4 in ('Poor Living Conditions/Poverty', 'Unacceptable material standards') then 'Poor Living Conditions/Poverty'
+		when e.eval_approval_reason_4 in ('Refugees', 'Refugees/Asylum Seekers') then 'Refugees/Asylum Seekers'
+		when e.eval_approval_reason_4 in ('Young Carer') then 'Young Carer'
+		when e.eval_approval_reason_4 in ('Young Parent', 'Young or Non-Coping Parent', 'Young/non-coping parent(s)') then 'Young Parent'
+		when e.eval_approval_reason_4 in ('Young Person with Drug/Alcohol Problems', 'Young person with drug/alcohol problems') then 'Young Person With Drug Problems'
+		ELSE CASE when e.eval_approval_reason_4 IS NULL THEN NULL ELSE 'Other' END
+	END as "eval_approval_reason_4_cat",	
+	e.eval_approval_no_of_reasons,
+	e.eval_refusal_reason_main,
+	e.eval_refusal_type,
+	e.eval_recommendation_text
+from 
+	sandbox.case_evaluation_stage as e
